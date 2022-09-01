@@ -1,6 +1,5 @@
 # Plotly_Deployment
 <br>
-<br>
 
 ## Where's the Beef?
 
