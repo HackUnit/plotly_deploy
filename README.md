@@ -1,6 +1,7 @@
 # Plotly_Deployment
 <br>
 <br>
+
 ## Where's the Beef?
 
 For this project, you helped a biological researcher named Roza in her interest on using an elusive bacterial species with the ability to 
