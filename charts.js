@@ -53,6 +53,8 @@ function buildMetadata(sample) {
   });
 }
 
+// Bar Chart
+
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
@@ -61,9 +63,16 @@ function buildCharts(sample) {
     // 3. Create a variable that holds the samples array. 
     var sampleData = data.samples;
     // 4. Create a variable that filters the samples for the object with the desired sample number.
-    var sampleArray = sampleData.filter(sampleObj => sampleObj.id == sample);
+    var resultArray = sampleData.filter(sampleObj => sampleObj.id == sample);
+    
+    //(D3) 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    var metadataArray = data.metadata.filter(sampleObj => sampleObj.id == sample);
+    
     //  5. Create a variable that holds the first sample in the array.
-    var result = sampleArray[0];
+    var result = resultArray[0];
+
+    //(D3) 2. Create a variable that holds the first sample in the metadata array.
+    var metaResult = metadataArray[0];
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     var otu_ids = result.otu_ids;
@@ -73,6 +82,10 @@ function buildCharts(sample) {
     var sample_values = result.sample_values;
       console.log(sample_values);
 
+    
+    //(D3) 3. Create a variable that holds the washing frequency.
+    var washFreq = parseInt(metaResult.wfreq);
+
 
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -80,11 +93,15 @@ function buildCharts(sample) {
 
     var yticks = otu_ids.slice(0,10).map(id => `OTU ${id}`).reverse();
 
+    var xticks = sample_values.slice(0,10).reverse();
+
+    var label = otu_labels.slice(0,10).reverse();
+
     // 8. Create the trace for the bar chart. 
     var barData = [ {
-      x: sample_values.slice(0,10).reverse(),
+      x: xticks,
       y: yticks,
-      text: otu_labels,
+      text: label,
       type: "bar",
       orientation: "h"
     }];
@@ -97,5 +114,63 @@ function buildCharts(sample) {
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
+
+// Bubble Chart
+
+    // 1. Create the trace for the bubble chart.
+    var bubbleData = [{
+    
+      x: otu_ids,
+      y: sample_values,
+      text: otu_labels,
+      mode: "markers",
+      marker: {
+        size: sample_values,
+        color: otu_ids,
+        colorscale: "Earth"
+      }
+    }];
+
+    // 2. Create the layout for the bubble chart.
+    var bubbleLayout = {
+
+      title: "Bacteria Cultures Per Sample",
+      xaxis: {title: "OTU ID"},
+      hovermode: "closest",
+      showlegend: false
+    };
+
+  // 3. Use Plotly to plot the data with the layout.
+  Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+  
+  
+  // 4. Create the trace for the gauge chart.
+    var gaugeData = [{
+      value: washFreq,
+      title: {text: "Belly Button Washing Frequency <br> Scrubs per Week"},
+      type: "indicator",
+      mode: "gauge+number",
+      gauge: {
+        axis: {range: [0,10], dtick: 2},
+        bar: {color: "black"},
+        steps: [
+          {range: [0, 2], color: "red"},
+          {range: [2, 4], color: "orange"},
+          {range: [4, 6], color: "yellow"},
+          {range: [6, 8], color: "yellowgreen"},
+          {range: [8, 10], color: "limegreen"}
+        ]},
+    }];
+
+    // 5. Create the layout for the gauge chart.
+    var gaugeLayout = { 
+      width: 400, 
+      height: 500, 
+      margin: { t: 0, b: 0 }
+    };
+  
+    // 6. Use Plotly to plot the gauge data and layout.
+    Plotly.newPlot("gauge", gaugeData, gaugeLayout);
+
   });
-}
+};
