@@ -21,5 +21,5 @@ panel for demographic information but the next step was to visualize the bacteri
 volunteer should be able to identify the top 10 bacterial species in their belly buttons. That way, if Improbable Beef finds a species as a 
 candidate to create synthetic beef, Roza's volunteers will be able to identify whether that species is from their belly button. This 
 information was displayed in a bar chart for the top 10 bacteria species per volunteer, a bubble chart to see bacteria cultures per sample 
-and finally, a gauge for how many times each volunteer washed their navel in a week. The end product was then spruced up and hosted on 
+and finally, a gauge for how many times each volunteer washed their navel in a week. The end product was then spruced up by adding an image to the jumbotron, background color, customized fonts and more information about the project as a paragraph on the page. Finally, it was hosted on 
 GitHub Pages so that the dashboard could be easily accessed.
