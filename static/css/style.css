@@ -1,0 +1,48 @@
+body {
+
+    background-color: #181A1B;
+
+}
+
+h1 {
+
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+p {
+    color: white;
+}
+
+.jumbotron {
+    border: 1px solid white;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.paragraph {
+
+    margin: auto;
+    width: 80%;
+    border: 2px solid white;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.space {
+
+    margin: 30px
+}
+
+#selDataset {
+
+    position: relative;
+    background-color: white;
+}

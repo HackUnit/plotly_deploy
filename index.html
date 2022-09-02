@@ -7,35 +7,52 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
-  <div id="plot"></div>
+  <!--<div id="plot"></div>
     <select id="dropdownMenu">
     <option value="dataset1">DataSet1</option>
   
     <option value="dataset2">DataSet2</option>
-  </select>
+  </select> -->
 
 
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
+      <div class="col-md-12 jumbotron text-center text-white" 
+        style="background: url(static/images/bacteria_bg.jpg) no-repeat center center fixed; 
+                background-size: cover;">
         <h1>Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
+      <div class="col-md-12">
+        <div class="paragraph">
+          <p>This is a collaboration with "Improbable Beef" to try and discover a bacteria species that can synthesize proteins to create real tasting beef!
+          <br>
+          Provided is the data from navel samples of people across the US. This information is kept anonymous and each volunteer was assigned an ID number.
+          <br><br>
+          To utilize the data: select an ID number and the rest of the page will populate with the demographics, 
+          top 10 bacteria, the washing frequency and a bubble chart of the bacteria cultures per volunteer.
+          </p>
+        </div>          
+      </div>
+    </div>
+    <div class="space"></div>
+    <div class="row">
       <div class="col-md-2">
         <div class="well">
-          <h5>Test Subject ID:</h5>
+          <h5><strong>Test Subject ID:</strong></h5>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
+            <h3 class="panel-title"><strong>Demographic Info</strong></h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div>
@@ -47,6 +64,7 @@
         <div id="gauge"></div>
       </div>
     </div>
+    <div class="space"></div>
     <div class="row">
       <div class="col-md-12">
         <div id="bubble"></div>
@@ -56,7 +74,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="charts.js"></script>
+  <script src="static/js/charts.js"></script>
 
 </body>
 
