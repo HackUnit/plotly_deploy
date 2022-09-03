@@ -1,6 +1,9 @@
 # Plotly_Deployment
 <br>
 
+### Link to [Plotly Deployment of Bacteria Dashboard](https://hackunit.github.io/plotly_deploy/).
+
+<br>
 ## Where's the Beef?
 
 For this project, you helped a biological researcher named Roza in her interest on using an elusive bacterial species with the ability to 
